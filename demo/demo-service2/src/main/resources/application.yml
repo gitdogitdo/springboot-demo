@@ -1,0 +1,24 @@
+server:
+  port: 8086
+spring:
+  profiles:
+    active: dev
+  http:
+    multipart:
+      enabled: true
+      max-file-size: 100MB
+      max-request-size: 120MB
+# mybatis config & 通用 mapper 配置
+mybatis:
+  type-aliases-package: com.example.demo
+  mapper-locations: classpath*:mapper/*.xml
+  config-location: classpath:/mybatis-config.xml
+mapper:
+  mappers: com.example.demo
+  not-empty: false
+  identity: MYSQL
+pagehelper:
+    reasonable: true
+    helper-dialect: mysql
+    supportMethodsArguments: true
+    params: count=countSql

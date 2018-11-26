@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false" scan="true" scanPeriod="60 seconds">
+    <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter" />
+    <conversionRule conversionWord="wex" converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter" />
+    <conversionRule conversionWord="wEx" converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter" />
+    <!-- 控制台输出日志 -->
+    <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%clr(%d{HH:mm:ss.SSS}){faint} > %clr(${LOG_LEVEL_PATTERN:-%5p}) %logger - %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="com.hqsf" level="DEBUG"/>
+
+    <!-- 测试时屏蔽无用 logger -->
+    <logger name="org.springframework" level="ERROR"/>
+    <logger name="org.apache.curator" level="ERROR"/>
+    <logger name="org.hibernate.validator" level="ERROR"/>
+    <logger name="com.alibaba.dubbo.remoting.transport" level="ERROR"/>
+
+    <!-- spring boot actuator -->
+    <logger name="org.springframework.boot.actuate" level="WARN"/>
+    <!-- thymeleaf -->
+    <logger name="org.thymeleaf.TemplateEngine" level="WARN"/>
+    <!-- others -->
+    <logger name="org.apache.zookeeper" level="WARN"/>
+    <logger name="com.alibaba.dubbo.config.AbstractConfig" level="ERROR"/>
+    <logger name="com.alibaba" level="WARN"/>
+
+    <root level="INFO">
+        <appender-ref ref="Console"/>
+    </root>
+</configuration>
